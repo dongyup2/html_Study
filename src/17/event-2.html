@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM event 객체</title>
+  <style>
+    #container {
+      width:300px;
+      margin:10px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img src="images/cup-1.png" class="cup">	
+    <img src="images/cup-1.png" class="cup">	
+  </div>
+
+	<script>
+		let cup = document.querySelectorAll("#cup");  // id = cup인 요소를 가져옴
+    
+    cup[0].onclick = () =>{ 
+      if(cup[0].src.includes("cup-1")){
+        cup[0].src = "images/cup-2.png";
+        }else{
+          cup[0].src = "images/cup-1.png";
+        }
+      }
+
+      cup[1].onclick = () =>{ 
+      if(cup[1].src.includes("cup-1")){
+        cup[1].src = "images/cup-2.png";
+        }else{
+          cup[1].src = "images/cup-1.png";
+        }
+      }
+ 
+</script>
+</body>
+</html>
