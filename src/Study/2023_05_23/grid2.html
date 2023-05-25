@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 10px;
+            background-color: #2196f3;
+            padding: 10px;
+        }
+        .grid-container > div{
+            background-color: rgba(255, 255, 255,0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+        .item1{/* '행시작(row-start) / 열시작 (col-start)/ 행끝(row-end) / 열끝(col-end)'임에 주의! */
+            grid-area: 2 / 1 / span 2 /span 3; 
+        }
+        .item2{
+            grid-area: 1 / 2 / 2 / 4;    
+        }
+        .item7{
+            grid-area: 4 / 1 / span 3 / span 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+        <div class="item7">7</div>
+    </div>
+</body>
+</html>
