@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let s = "0123456789";
+        console.log(s.charAt(0)); // 0번째 인덱스 출력
+        console.log(s.substring(3, 6));//3번 인덱스부터 6까지 출력
+        console.log(s.replace('4', 'k'));// 문자 4라는 녀석을 k로 바꾸는 함수
+        console.log(s.startsWith('0'));//s변수가 0부터 시작하느냐?
+
+        // let ss = "930312-1234567";//ss 변수에 "930312-1234567" 들어있다.
+        // checkGender(ss);// checkGender 이라는 함수에 ss 변수가 있음
+        // function checkGender(check){
+        //     if(check.charAt('7') == '1'){ // charAt 으로 위치를 알아내고 비교
+        //         alert('남자입니다.'); // 맞으면 출력
+        //     }else if(check.charAt('7') == '2'){
+        //         alert('여자입니다');
+        //     }
+        // };
+        
+        let person = {
+            name : '홍길동',
+            personalNumber : "930312-1234567",
+        }
+        //호이스팅: 코드는 밑에 정의되어있지만 코드를 올려주는걸 호이스팅이라고 한다.
+        //익명 함수는 밑으로 내려줘야함 checkGender2(person); 호이스팅이 안되서 순서를 잘지키자.
+         var checkGender2 = function (somebody){  
+            if(somebody.personalNumber.charAt('7') == '1'){
+                console.log(person.name.substring(0, 3) + '은 남자입니다.');
+                document.write(person.name.substring(0, 3) + '은 남자입니다.');
+                alert(person.name + '은 남자입니다.');
+            }else if(somebody.personalNumber.charAt('7') == '2'){
+                console.log(person.name.substring(0, 3) + '은 여자입니다.');
+                document.write(person.name.substring(0, 3) + '은 여자입니다.');
+                alert(person.name + '은 여자입니다.');
+            }
+        };
+        checkGender2(person); 
+
+        
+        //Document Object Model = DOM
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

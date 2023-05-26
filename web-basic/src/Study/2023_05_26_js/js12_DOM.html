@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //document.getElementById(아이디) 아이디로 1개 선택
+        //document.querySelector(선택자) 선택자로 1개 선택
+        //document.
+
+    //     window.onload = function(){
+    //     //h1 태그의 배경 색상을 변경합니다.
+    //     document.querySelector('h1').style.backgroundColor = 'red';
+    //     //h2 태그의 배경 색상을 변경합니다.
+    //     document.querySelector('h2').style.color = 'red';
+    //    };
+        
+       window.onload = function (){
+        var header = document.getElementById('header');
+
+        header.style.color = 'orange';
+        header.style.background = 'red';
+        header.innerHTML = 'From JavaScript'; //innerHTML은 태그 내부를 의미하는 속성입니다.
+       };
+    
+    </script>
+</head>
+<body>
+    <h1>Process - 1</h1>
+    <h2>Process - 2</h2>    
+    <h1 id = "header">Header</h1>
+</body>
+</html>
