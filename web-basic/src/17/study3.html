@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1 class="remove">삭제 테스트</h1>
+    </div>
+    <button type="button" class="btn">노드 추가</button>
+    <button type="button" class="R-btn">노드 삭제</button>
+    
+    <script>
+        const container = document.querySelector("#container");
+        const btn = document.querySelector(".btn");
+        const btn2 = document.querySelector(".r-btn");
+
+        rBtn.onclick = ()=> {
+            const remove = document.querySelector(".remove");
+            remove.parentNode.removeChild(remove);
+        }
+        
+        btn.onclick = () => {
+            const div1 = document.createElement("div");
+            const h1 = document.createElement("h1");
+            const p = document.createElement("p");
+            const text1 = document.createTextNode("Dom 노드 Study");
+            const text2 = document.createTextNode("안녕하세요. javascript 수업입니다.");
+
+            const input1 = document.createElement("input");
+            const attribute1 = document.createAttribute("type");
+            attribute1.value = "password";
+
+            h1.appendChild(text1);
+            p.appendChild(text2);
+            div1.appendChild(h1);
+            div1.appendChild(p);
+            div1.appendChild(input1);
+            input1.setAttributeNode(attribute1);
+            
+            container.appendChild(div1);
+        }
+
+
+    </script>
+</body>
+</html>
