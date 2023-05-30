@@ -10,29 +10,29 @@
     <button type="button" class="alert-button">알림</button>
     <button type="button" class="confirm-button">확인</button>
     <button type="button" class="prompt-button">입력</button>
-    <script>
-        const alertButton = document.querySelector(".alert-button");
-        const confirmButton = document.querySelector(".confirm-button");
-        const promptButton = document.querySelector(".prompt-button");
-
-        alertButton.onclick = () => { //onclick이 일어나면 밑의 코드가 실행된다
-            alert("알림창 오픈!");
-        }
-        confirmButton.onclick = () => {
-            let flag = false;
-            flag = confirm("다음으로 넘어 가시겠습니까?");
-            if(flag == true){
-                alert("다음으로 넘어갑니다.");
-            }else{
-                alert("다음으로 넘어가지 않습니다.");
-            }
-        }
-        promptButton.onclick = () => {
-            let message = null;
-            message = prompt("전송할 메세지를 입력하세요.","기본값");
-            alert("메세지 내용: " + message);
-        }
-        console.log("System.out.println();");
-    </script>
 </body>
+<script>
+    const alertButton = document.querySelector(".alert-button");
+    const confirmButton = document.querySelector(".confirm-button");
+    const promptButton = document.querySelector(".prompt-button");
+
+    alertButton.onclick = () => { //onclick이 일어나면 밑의 코드가 실행된다
+        alert("알림창 오픈!");
+    }
+    confirmButton.onclick = () => {
+        let flag = false;
+        flag = confirm("다음으로 넘어 가시겠습니까?");
+        if(flag == true){
+            alert("다음으로 넘어갑니다.");
+        }else{
+            alert("다음으로 넘어가지 않습니다.");
+        }
+    }
+    promptButton.onclick = () => {
+        let message = null;
+        message = prompt("전송할 메세지를 입력하세요.","기본값");
+        alert("메세지 내용: " + message);
+    }
+    console.log("System.out.println();");
+</script>
 </html>
