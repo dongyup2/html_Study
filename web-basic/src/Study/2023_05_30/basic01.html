@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css 적는 곳*/
+    </style>
+</head>
+<body>
+    <h1 id = "header">Header</h1>
+    <h1 id = "h1">Header</h1>
+    <h1 id = "h1-2">Header</h1>
+</body>
+<script>
+    //javaScript 적는 곳 //
+    console.log(n);
+    var n = 10; // 호이스팅
+    const m = 20;
+
+
+    var f = function (){
+        alert("f함수 선언..");
+    }
+    window.onload = function (){
+        var header = document.getElementById('header');
+        var h1 = document.getElementById('h1');
+        var h1_2 = document.getElementById('h1-2');
+    //문서 객체를 조작합니다.
+    header.style.color = 'orange';
+    header.style.background = 'blue';
+    header.innerHTML = 'From JavaScript';
+
+    h1.style.color = 'green'; 
+    h1.style.background = 'yellow';
+    
+    h1_2.style.color = 'white';
+    h1_2.style.background = 'black';
+}
+
+</script>
+</html>

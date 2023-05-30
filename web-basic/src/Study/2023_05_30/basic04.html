@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div></div>
+</body>
+<script>
+    window.onload = function(){
+        var output = ''; // 빈문자열
+        for(var i = 0; i < 256; i++){ //0부터 255까지 반복하면서 
+            output += '<div></div>'; //output 에게 누적 (div 태그는 하나의 라인을 다차지함) 크기지정 해야함
+        }
+        document.body.innerHTML = output;
+        
+        var divs = document.querySelectorAll('div');
+        for(var i = 0; i < divs.length; i++){
+            //변수를 선언합니다.
+            var div = divs[i];
+
+            // 스타일을 적용합니다.
+            div.style.height = '2px';
+            div.style.background = 'rgb(' + i + ',' + i + ',' + i + ')'; 
+        }
+    }   
+</script>
+</html>
