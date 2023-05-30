@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">버튼</button>
+</body>
+<script>
+    window.onload = function (){
+        // 문서 객체를 선택합니다.
+        var button = document.getElementById('button');// var button에 id가 button인 녀석을 연결한다.
+
+        //이벤트를 연결합니다.
+        button.onclick = () =>{ //button에 click 이벤트가 발생하면
+            alert('click'); // 실행된다.
+        };
+    };
+</script>
+</html>
