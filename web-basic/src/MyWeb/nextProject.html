@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>송미나님의 방송</title>
+    <style>
+        body {
+            font-family: Arial,-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 0 8px rgba(0, 0, 0,0.1);
+            background-color: white;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .broadcast {
+            position: relative;
+            flex: 1;
+            background-color: black;
+        }
+
+        .broadcast video {
+            width: 100%;
+            height: auto;
+        }
+
+        .live-label {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: red;
+            color: white;
+            font-size: 1rem;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+          .user-profile {
+              position: absolute;
+              left: 8px;
+              bottom: 8px;
+              display: flex;
+              gap: 4px;
+              align-items: center;
+          }
+          .user-profile img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+          }
+          .user-profile .name {
+              font-size: 16px;
+              color: white;
+          }
+        .chat {
+            height: 500px;
+            width: 300px;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .live-viewers {
+            background-color: red;
+            color: white;
+            font-size: 1rem;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="broadcast">
+            <video src="path/to/video/file.mp4" autoplay muted></video>
+            <span class="live-label">LIVE</span>
+            <div class="user-profile">              
+                <img src="/src/MyWeb/images/profilebono.png" />
+                <div class="name">송미나님의 라이브방송</div>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="live-viewers">Live 시청자</div>
+            <div class="chat-window" style="overflow-y: scroll; flex: 1;">
+                <!-- 채팅 내용이 이곳에 들어갑니다 -->                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
