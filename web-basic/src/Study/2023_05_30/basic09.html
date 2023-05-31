@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rockScissorsPaper</title>
+    <style>
+        .box{
+            width: 150px; height: 150px;
+            background-color: blue;
+            border: 1px solid black;
+        }
+    </style>
+</head> 
+<body>
+    <div class="box"></div>
+    <button class = "btn">실행</button><br>
+</body> 
+    <script>
+        // const box = document.getElementById(".box");
+        const box = document.querySelectorAll(".box");
+        const btn = document.querySelector(".btn");
+        
+        btn.onclick = function(){
+            box.style.background = 'red';
+        };
+        btn.onclick = function(){
+            box.style.visibility = 'visible';
+        };
+
+
+        btn.onclick = function(){
+            alert(Math.floor(Math.random()*10));// 무조건 내림
+            // alert(Math.floor(Math.celi(1.1)*10));   // 무조건 올림
+            // alert(Math.floor(Math.round(1.5)*10));  // 반올림
+        }
+        
+    </script>
+</html> 
