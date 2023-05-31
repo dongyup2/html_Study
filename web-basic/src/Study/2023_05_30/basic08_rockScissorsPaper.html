@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+        }
+
+        .player, .computer {
+            width: 300px;
+            height: 300px;
+        }
+
+        .vs {
+            margin: 0 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/src/Study/img/rockScissorsPaper/questionmark.jpg" alt="플레이어 선택" class="player">
+        <div class="vs">VS</div>
+        <img src="/src/Study/img/rockScissorsPaper/questionmark.jpg" alt="컴퓨터 선택" class="computer">
+    </div>
+    <input type="text" id="input" placeholder="가위, 바위, 보 입력">
+    <button id="btn" onclick="play()">입력</button>
+
+    <script>
+        const playerImg = document.querySelector('.player');
+        const computerImg = document.querySelector('.computer');
+        
+        function getRandomChoice() {
+            const choices = ['가위', '바위', '보'];
+            return choices[Math.floor(Math.random() * 3)];
+        }
+
+        function choiceToImageSrc(choice) {
+            switch (choice) {
+                case '가위': return '/src/Study/img/rockScissorsPaper/scissors.jpg';
+                case '바위': return '/src/Study/img/rockScissorsPaper/rock.jpg';
+                case '보': return '/src/Study/img/rockScissorsPaper/paper.jpg';
+                default: return '/src/Study/img/rockScissorsPaper/questionmark.jpg';
+            }
+        }
+
+        function play() {
+            const inputChoice = document.getElementById('input').value;
+            if (['가위', '바위', '보'].indexOf(inputChoice) === -1) {
+                alert('가위, 바위, 보 중 하나를 입력해주세요.');
+                return;
+            }
+
+            const computerChoice = getRandomChoice();
+
+            playerImg.src = choiceToImageSrc(inputChoice);
+            computerImg.src = choiceToImageSrc(computerChoice);
+        }
+        function gameOver(){
+            if(inputChoice == '가위' && getRandomChoice == '2'){
+                alert('사용자가 승리하였습니다!!!');
+            }
+        }
+    </script>
+</body>
+</html>
