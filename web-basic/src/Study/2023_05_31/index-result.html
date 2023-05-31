@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            text-align: center;
+            width: 100%;
+        }
+        #container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input {
+            height: 40px;
+            width: 500px;
+        }
+        #btn{
+            margin-left: 10px;
+            height: 45px;
+        }
+    </style>
+</head>
+<body>
+    <h2>여행 준비물 점검 목록</h2>
+    <div id="container">
+        <input type="text" id="input">
+        <button id="btn" onclick="add()">추가</button>
+    </div>
+    <div id="list"></div>
+</body>
+    <script>
+        const inputAdd = document.getElementById("input");
+        const putbtn = document.getElementById("btn");
+        const list = document.getElementById("list");
+
+        let arr = [];
+        function add() {
+            let data = input.value;
+            arr.push(data);
+            showlist();
+        } 
+
+        function showlist(){
+            list.innerHTML = "";
+            for(let i = 0; i < arr.length; i++){
+                list.innerHTML += arr[i] +
+                "<br>";
+            }
+        }
+    </script>
+</html>
