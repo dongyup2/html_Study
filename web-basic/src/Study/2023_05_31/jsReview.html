@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css*/
+        #demo{
+            margin-top: 10xpx;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- html -->
+     <button>run</button>
+     <hr>
+     <input type="text" name="score" name="">
+     <div id = demo></div>
+</body>
+<script>
+    //자바스크립트 복습
+    const div_demo = document.querySelector("#demo");
+
+    const btn = document.querySelector("button");// html 의 button 태그가 js의 btn에 들어온다
+
+    const txt_score = document.querySelector("#score")
+
+    btn.addEventListener('click', f);
+
+    function f(){
+        //div 태그내에 있는 텍스트를 가져와라.
+       div_demo.style.backgroundColor = 'red';
+        //그것을 텍스트 박스에 넣어라.
+    }
+    div_demo.addEventListener('click',changeRed);
+    function changeRed(){
+        alert("파랑색으로 변경할것임.");
+        div_demo.style.backgroundColor = 'blue';
+    }
+</script>
+</html>
