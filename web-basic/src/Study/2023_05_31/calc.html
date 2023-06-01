@@ -78,26 +78,26 @@
     </div>
 </body>
 <script>
-    const buttons = document.querySelectorAll('.btn');
-    const windowDisplay = document.getElementById('window');
+    const buttons = document.querySelectorAll('.btn');//
+    const windowDisplay = document.getElementById('window'); // id가 window인애를 찾아서 변수에 저장
 
-    const buttonClick = (event) => {
-        const value = event.target.textContent;
+    const buttonClick = (event) => { // 버튼 클릭 이벤트가 발생할때 호출되는 함수이다.
+        const value = event.target.textContent; // 클릭된 버튼의 내용을 변수 value에 저장한다.
 
-        switch (value) {
-            case '=':
-                try {
+        switch (value) { //switch (value) 문을 사용하여 value의 내용에 따라 다른 동작을 수행한다.
+            case '=': 
+                try {//'=': eval() 함수를 사용하여 windowDisplay에 있는 수식을 계산하고 결과를 표시한다.
                     windowDisplay.textContent = eval(windowDisplay.textContent);
                 } catch (error) {
-                    windowDisplay.textContent = 'Error';
+                    windowDisplay.textContent = 'Error';// 수식이 유효하지 않으면 'Error'를 표시합니다
                 }
                 break;
             case 'C':
-                windowDisplay.textContent = '0';
+                windowDisplay.textContent = '0'; //'C': windowDisplay의 내용을 '0'으로 초기화한다.
                 break;
             default:
-                if (windowDisplay.textContent === '0' || windowDisplay.textContent === 'Error') {
-                    windowDisplay.textContent = value;
+                if (windowDisplay.textContent === '0' || windowDisplay.textContent === 'Error') {//만약 0 이나 Error가 창에 있을때
+                    windowDisplay.textContent = value;//다시 클릭한 내용이 창에 입력됨
                 } else {
                     windowDisplay.textContent += value;
                 }
