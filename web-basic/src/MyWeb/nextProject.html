@@ -35,11 +35,33 @@
             background-color: black;
         }
 
+        .white-block {
+            background-color: white;
+            border-radius: 60px;
+            position: absolute;
+            width: 90%;
+            height: 76%;
+            padding: 15px;
+            z-index: 1;
+            left: 50%;
+            top: 48%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .p-font{
+            text-align: center;
+            font-size: 12px;
+            padding-right: 30%;
+        }
+        .live-label, .user-profile {
+            z-index: 2;
+        }
+
         .broadcast video {
             width: 100%;
             height: auto;
         }
-
+    
         .live-label {
             position: absolute;
             top: 4px;
@@ -50,23 +72,24 @@
             padding: 2px 4px;
             border-radius: 2px;
         }
-          .user-profile {
-              position: absolute;
-              left: 8px;
-              bottom: 8px;
-              display: flex;
-              gap: 4px;
-              align-items: center;
-          }
-          .user-profile img {
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-          }
-          .user-profile .name {
-              font-size: 16px;
-              color: white;
-          }
+        .user-profile {
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .user-profile .name {
+            font-size: 16px;
+            color: white;
+        }
+
         .chat {
             height: 500px;
             width: 300px;
@@ -74,8 +97,27 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            gap:8px;
         }
-
+        .chat-message {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .chat-message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .chat-message .text {
+            background-color: #eee;
+            padding: 8px;
+            border-radius: 16px;
+            font-size: 14px;
+        }
         .live-viewers {
             background-color: red;
             color: white;
@@ -89,17 +131,62 @@
 <body>
     <div class="container">
         <div class="broadcast">
-            <video src="path/to/video/file.mp4" autoplay muted></video>
+            <video id="videoPlayer" src="path/to/video/file.mp4" autoplay muted></video>
             <span class="live-label">LIVE</span>
-            <div class="user-profile">              
-                <img src="/src/MyWeb/images/profilebono.png" />
+            <div class="user-profile">                  
+                <img src="images/profilebono.png" />
                 <div class="name">송미나님의 라이브방송</div>
+            </div>
+            <div class="white-block">
+                <div class="p-font">
+                <!-- 여기에 내용을 추가하세요. -->
+                <p>송미나님은 열정이 많습니다.</p>
+                <p>대표적인 예로 풀타임 개발자 수업 과정 중에도</p>
+                <p>국가기사시험을 같이 준비하고</p>
+                <p>국가시험 당일 날에도 시험 종료 후 수업에 참여 하여 배움의 열정을 보여줬습니다.</p>
+                <p>또 송미나님은 이해도가 높습니다.</p>
+                <p>실제 프로그래밍개발 관련 전공자로서</p>
+                <p>지시 업무에 대한 이해도가 뛰어납니다.</p>
+                <p>제가 업무 내용 질문 시 업무 내용 설명을 알기 쉽게 설명해주며</p>
+                <p>도움이 필요한 부분은</p>
+                <p>직접적으로 도와줘서 많이 배울 수 있었습니다.</p>
+                <p>-SW프로그래밍 동기 태수-</p>
+            </div>
+                <img src="images/stopBtn.png" alt="">
             </div>
         </div>
         <div class="chat">
-            <div class="live-viewers">Live 시청자</div>
+            <div class="live-viewers">Live 참여자</div>
             <div class="chat-window" style="overflow-y: scroll; flex: 1;">
-                <!-- 채팅 내용이 이곳에 들어갑니다 -->                   
+                <!-- 이후 채팅 내용이 여기에 추가됩니다 -->
+                <div class="chat-message">
+                    <img src="images/googleLogo.png" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/microsoftlogo.png" alt="">
+                    <div class="text">안녕하세요! 반갑습니다.</div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/naver_logo.webp" alt="">
+                    <div class="text">잘봤습니다.</div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/Kakao.png" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/LINE_APP_Logo.png" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/coupangLogo.png" alt="">
+                    <div class="text">안녕하세요! </div>
+                </div>
+                <div class="chat-message">
+                    <img src="images/배달의민족Logo.png" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
             </div>
         </div>
     </div>
