@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            position: relative;
+            background-color: blueviolet;
+            display: flex;
+            background-color: mediumvioletre;
+            border: 1px solid black;
+            width: 400px;
+            height: 400px;
+        }       
+        #div1{
+            background-color: crimson;
+            border: 1px solid black;
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 50px;
+            left: 50px;
+        
+        }
+        #div2{
+            background-color: darkred;
+            border: 1px solid black;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 50px;   
+        }
+        #div3{
+            background-color: indigo;
+            border: 1px solid black;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;          
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <div id="div2">
+                <div id="div3">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const container = document.querySelector('#container');
+    const div1 = document.querySelector('#div1');
+    const div2 = document.querySelector('#div2');
+    const div3 = document.querySelector('#div3');
+
+    container.addEventListener('click', f);
+    div1.addEventListener('click', f);
+    div2.addEventListener('click', f);
+    div3.addEventListener('click', f);
+    
+    function f(event){ 
+        // alert(event.target.id); // 이벤트가 발생한 지점을 알려주는게 event.target이다. (중요!!)
+        // alert(event.current.id);// 현재 실행되고있는 이벤트에 대해서 알려주는게 event.currentTarget 이다.
+        alert(this.id); // current와 같은 값을 가져온다
+    }
+</script>
+</html>
