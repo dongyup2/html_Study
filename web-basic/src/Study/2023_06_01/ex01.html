@@ -62,15 +62,22 @@
     const div2 = document.querySelector('#div2');
     const div3 = document.querySelector('#div3');
 
-    container.addEventListener('click', f);
+    // container.addEventListener('click', f);
+    div1.addEventListener('click', f1, true);
     div1.addEventListener('click', f);
+    div2.addEventListener('click', f1, true);
     div2.addEventListener('click', f);
+    div3.addEventListener('click', f1, true);
     div3.addEventListener('click', f);
     
     function f(event){ 
         // alert(event.target.id); // 이벤트가 발생한 지점을 알려주는게 event.target이다. (중요!!)
         // alert(event.current.id);// 현재 실행되고있는 이벤트에 대해서 알려주는게 event.currentTarget 이다.
-        alert(this.id); // current와 같은 값을 가져온다
+        // alert(this.id); // current와 같은 값을 가져온다
+        alert("버블링단계 : " + this.id + " | 이벤트발생 id-" + event.target.id);
+    }
+    function f1(event){
+        alert("캡처링단계 : " + this.id + " | 이벤트발생 id-" + event.target.id);
     }
 </script>
 </html>
