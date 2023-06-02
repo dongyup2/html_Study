@@ -54,30 +54,38 @@
             <th id="deletebtn">삭제</th>
         </tr>
     </tbody>
-    </table>
-    <script>
-        document.getElementById("registerButton").onclick = function(event) {
-            const inputNum = document.getElementById("inputNum").value;
-            const inputName = document.getElementById("inputName").value;
-            const inputContact = document.getElementById("inputPhone").value;
-
-            const table = document.getElementById("table");
-            let row = table.insertRow(-1);
-            let cell1 = row.insertCell(0);
-            let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            let cell4 = row.insertCell(3);
-
-            cell1.innerHTML = inputNum;
-            cell2.innerHTML = inputName;
-            cell3.innerHTML = inputContact;
-            cell4.innerHTML = '<button type="button" id="deletebtn" onclick="deleteRow(this)">삭제</button>';
-        }
-
-        function deleteRow(btn) {
-            var row = btn.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-        }
-    </script>
+</table>
 </body>
+<script>
+    const regbtn = document.getElementById("registerButton");
+
+    regbtn.addEventListener('click', regbtnadd);
+        function regbtnadd() {
+        const inputNum = document.getElementById("inputNum").value; // input에 받은 value 들을 변수에 넣는다
+        const inputName = document.getElementById("inputName").value;
+        const inputPhone = document.getElementById("inputPhone").value;
+        
+        if (inputNum === '' || inputName === '' || inputPhone === '') { // input창이 비었는지 유효성 검사를 한다.
+        alert('모든 입력란에 값을 입력해주세요.');
+        return;
+        };
+
+        const table = document.getElementById("table"); // 테이블
+        let row = table.insertRow(-1); // 마지막행이 테이블에 마지막으로 추가됨
+        let cell1 = row.insertCell(0);//cell1에는 처음 행
+        let cell2 = row.insertCell(1);//cell2에는 두번쨰 행
+        let cell3 = row.insertCell(2);//cell3에는 세번째 행
+        let cell4 = row.insertCell(3);//cell4에는 네번째 행
+
+        cell1.innerHTML = inputNum; 
+        cell2.innerHTML = inputName;
+        cell3.innerHTML = inputPhone;
+        cell4.innerHTML = '<button type="button" id="deletebtn" onclick="deleteRow(this)">삭제</button>';
+    };
+
+    function deleteRow(btn) {
+    var row = btn.parentElement.parentElement;
+    row.parentElement.removeChild(row);
+};
+</script>
 </html>
