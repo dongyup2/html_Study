@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*화면안에서의 팝업창=> 화면 최상단에 나오게하는 창을 배워보자*/
+        #first{
+            position: absolute;
+            width: 100px; height: 100px;
+            background-color: bisque;
+            display: none;            
+        }   
+        #secound{
+            position: absolute;
+            width: 200px; height: 100px;
+            background-color: gray;
+            display: block;
+            opacity: 90%;
+        }
+        #x{
+            position: absolute;
+            width: 20px; height: 20px;
+            background-color: black;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+            top: 10px;
+            right: 10px;
+        }
+        #x:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="first">AAAAAAAAAAAAAA</div>
+        <div id="secound">
+            <div id="x">X</div>
+        </div>
+    </div>
+</body>
+<script>
+    const first = document.querySelector('#first');
+    const secound = document.querySelector('#secound'); // 변수 secound를 추가하세요.
+    const x = document.querySelector('#x');
+
+    first.addEventListener('click', showSecound); // first 요소에 이벤트 리스너 추가
+    x.addEventListener('click', hideSecound);
+
+    function hideSecound() {
+        secound.style.display = 'none';
+        first.style.display = 'block';
+    }
+
+    function showSecound() {
+        secound.style.display = 'block'; // secound 요소를 표시하는 것으로 변경하세요.
+    }
+</script>
+</html>
