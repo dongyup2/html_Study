@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        div{
+            background-color: seagreen;
+            width: 100px; height: 100px;
+            border: 1px solid black;
+        }
+        #first{
+            background-color: yellowgreen;
+        }
+        .boldLine{
+            border: 5px solid goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo" class="boldLine">
+
+    </div>
+</body>
+<script>
+    const demo = document.querySelector('#demo');
+    let div = document.createElement('div');
+    let txt = document.createTextNode('aaa');
+
+    let ul = document.createElement('ul');
+    let li1 = document.createElement('li1');
+    let li2 = document.createElement('li2');
+    let li3 = document.createElement('li3');
+    let litxt1 = document.createTextNode('1');
+    let litxt2 = document.createTextNode('2');
+    let litxt3 = document.createTextNode('3');
+
+    div.appendChild(txt);
+    document.body.insert(div);
+    document.body.appendChild(li);
+    li.appendChild(litxt1);
+    li.appendChild(litxt2);
+    li.appendChild(litxt3);
+
+    //두번째 div 생성
+    const div2 = document.createElement('div');
+    const txt2 = document.createTextNode('ㅠㅠㅠ');
+    div2.appendChild(txt2);
+    document.body.appendChild(div2);
+    div2.setAttribute('style', 'background-color: red');
+    div2.setAttribute('class','boldLine'); 
+
+</script>
+</html>
