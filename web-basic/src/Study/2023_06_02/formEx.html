@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            height: 20px;
+            width: 150px;
+            border: solid rgb(191, 191, 238);
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 80px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: rgb(191, 191, 238);
+            color: whitesmoke;
+        }
+        #deletebtn{
+            background-color: rgb(191, 191, 238);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <label for="">번호</label>
+        <input type="text" name="" id="inputNum"><br>
+        <label for="">이름</label>
+        <input type="text" name="" id="inputName"><br>
+        <label for="">연락처</label>
+        <input type="text" name="" id="inputPhone"><br>
+        <button type="button" id="registerButton">등록</button>
+    </div>
+    <table id="table">
+        <tbody id="tbody">
+        <tr id="tr">
+            <th>번호</th>   
+            <th>이름</th>
+            <th>연락처</th>
+            <th id="deletebtn">삭제</th>
+        </tr>
+    </tbody>
+    </table>
+    <script>
+        document.getElementById("registerButton").onclick = function(event) {
+            const inputNum = document.getElementById("inputNum").value;
+            const inputName = document.getElementById("inputName").value;
+            const inputContact = document.getElementById("inputPhone").value;
+
+            const table = document.getElementById("table");
+            let row = table.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+
+            cell1.innerHTML = inputNum;
+            cell2.innerHTML = inputName;
+            cell3.innerHTML = inputContact;
+            cell4.innerHTML = '<button type="button" id="deletebtn" onclick="deleteRow(this)">삭제</button>';
+        }
+
+        function deleteRow(btn) {
+            var row = btn.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+</body>
+</html>
