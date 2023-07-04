@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table td, th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <form name="frm">
+        번호 : <input type="text" id="num"><br>
+        이름 : <input type="text" id="name"><br>
+        연락처 : <input type="text" id="tel"><br>
+        <button type="submit" id="btn">등록</button>
+    </form>
+    <div id="demo2"></div>
+    <table border="1" id="tb">
+        <thead>
+            <!-- 테이블의 실제구조로는 t헤드가 존재한다 -->
+            <tr id="row">
+                <th>번호</th><th>이름</th><th>연락처</th><th>삭제</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <!-- 중요한건 tbody -->
+           
+        </tbody>
+    </table>
+    <script>
+        // 등록버튼을 누르면 행이 만들어져야한다..
+        // 버튼의 요소를 뽑아낸다.
+        // 행이 어디로 들어가야해? tbody안에 들어가야해.
+        // 바디의 요소를 뽑아내 
+
+        const btn = document.getElementById("#btn");
+        const tbody = document.querySelector("#tbody");
+        const tb = document.querySelector("#tb");
+        
+
+        btn.addEventListener('click', reg);
+
+        function reg(){
+            const inputnum = document.getElementById('#num').value;
+            const inputname = document.getElementById('#name').value;
+            const inputtel = document.getElementById('#tel').value;
+
+            if(inputnum === '' || inputname === '' || inputtel === ''){
+                alert('번호값이 공백입니다!');
+                return;
+            };
+                tbody.innerHTML = '<tr>'
+                        + '<td>' + num.value + '</td>'
+                        + '<td>' + name.value + '</td>'
+                        + '<td>' + tel.value + '</td>'
+                        + '<td><button>삭제</button></td>'
+                        + '</tr>';
+        // tbody 안에 innerHTML로 적어넣겠습니다... 
+                        num.value = '';
+                        name.value= '';
+                        tel.value = '';
+
+        };
+
+        tb.addEventListener('click', del);
+        // 이벤트 버블링 때문에 상위 태그에 걸어야 한다. 그리고 중복될 수 있는 부분을 if문을 통해서 관리...
+
+        function del(event){
+            if(event.target.tagName != 'BUTTON'){
+                return;
+            }else{
+            event.target.parentElement.parentElement.remove();
+        }
+    }
+    
+        
+    </script>
+</body>
+</html>
