@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!------------------------------------------------------------------------->
+    <style media="screen">
+      #LeftUser
+      {
+        background: red;
+        width: 50px;
+        height: 200px;
+        left: 300px;  /* x축 좌표값 */
+        top: 400px; /* y축 좌표값 */
+        position: absolute;
+      }
+      #RightUser
+      {
+        background: blue;
+        width: 50px;
+        height: 200px;
+        left: 1500px;  /* x축 좌표값 */
+        top: 400px; /* y축 좌표값 */
+        position: absolute;
+      }
+
+      #ball
+      {
+          left: 350px;  /* x축 좌표값 */
+          top: 470px; /* y축 좌표값 */
+          border-radius: 30px;
+          width: 50px;
+          height: 50px;
+          background: black;
+          position: absolute;
+      }
+
+      h2
+      {
+        top : 0px;
+        left: 900px;
+        position: absolute;
+      }
+
+      p
+      {
+        color: #09F0E9;
+      }
+
+    </style>
+    <script type="text/javascript">
+      let divLeftTop = 400, divRightTop = 400; // 왼쪽과 오른쪽 유저의 위치(위, 아래)
+      let LeftScore = 0, RightScore = 0; // 왼쪽과 오른쪽 유저의 점수
+      let ballLeft = 350, ballTop = 470; // 공 위치
+      let ballAngle = 1; // 공 각도
+      let ballposition = -1; // -1 : 왼쪽, 1 : 오른쪽
+      let gameWhether = 0; // 게임 여부상황 시작 전 : 0, 시작 후 : 1
+
+      function gameSetting()
+      {
+        if(LeftScore >= 3 || RightScore >= 3)
+        {
+          if(LeftScore >= 3)
+              alert("RedTeam Win!!");
+          else if(RightScore >= 3)
+              alert("BlueTeam Win!!");
+
+          LeftScore = RightScore = 0;
+        }
+
+        divLeftTop = 400;
+        divRightTop = 400;
+        ballTop = 470;
+        ballAngle = 1;
+        if(ballposition == -1)
+          ballLeft = 350;
+        else
+          ballLeft = 1450;
+
+        ScoreUpdate(LeftScore, RightScore);
+        ballUpdate(ballLeft, ballTop);
+        moveToLeft(divLeftTop);
+        moveToRight(divRightTop);
+      }
+
+      function ScoreUpdate(LeftScore, RightScore)
+      {
+        document.querySelector("h2").innerHTML = `${LeftScore} : ${RightScore}`;
+      }
+
+      // ************* ball(공)의 움직임 (start) *****************************
+      function ballUpdate(ballLeft, ballTop)
+      {
+        document.getElementById("ball").style.left = ballLeft + 'px';
+        document.getElementById("ball").style.top = ballTop + 'px';
+      }
+
+      function ballOut()
+      {
+        if(ballLeft >= 1530 || ballLeft <= 300)
+        {
+          if(ballLeft >= 1530)
+            LeftScore++;
+          else if(ballLeft <= 300)
+            RightScore++;
+
+          gameWhether = 0;
+          gameSetting();
+          return 0;
+        }
+      }
+
+      function ballMove()
+      {
+        if(gameWhether == 0 || ballOut() == 0)
+          return;
+        ballBounce();
+        ballLeft += ballposition == -1? 30 : -30;
+        ballTop += ballAngle == 1? 30 : -30;
+        ballUpdate(ballLeft, ballTop);
+      }
+
+      function ballBounceCheck()
+      {
+        while(ballBounce() != 0);
+        gameWhether++; // 게임 시작 알림
+      }
+
+      function ballBounce()
+      {
+        if(ballTop >= window.innerHeight - 50) // 공이 윈도우 창 아래쪽에 닿였을 때
+          ballAngle = -1;
+        else if(ballTop <= 0) // 공이 윈도우 창 위쪽에 닿였을 때
+          ballAngle = 1;
+
+        if(ballposition == 1) // 공이 오른쪽에서 왼쪽으로 오는 상황
+        {
+          if(ballLeft <= 360 && divLeftTop <= ballTop && divLeftTop + 180 >= ballTop) // 왼쪽유저의 라켓안에 들어왓을때
+          {
+            ballposition = -1;
+            return 1;
+          }
+        }
+        else if(ballposition == -1) // 공이 왼쪽에서 오른쪽으로 오는 상황
+        {
+          if(ballLeft >= 1440 && divRightTop <= ballTop && divRightTop + 180 >= ballTop) // 오른쪽유저의 라켓안에 들어왓을때
+          {
+            ballposition = 1;
+            return -1;
+          }
+        }
+        return 0;
+      }
+
+      // ************* ball(공)의 움직임 (end) *****************************
+
+
+      // ****************** User들 움직임 (start) ******************************
+      function moveToLeft(top)
+      {
+        let LDiv = document.getElementById("LeftUser");
+        LDiv.style.top = top + 'px';
+      }
+
+      function moveToRight(top)
+      {
+        let RDiv = document.getElementById("RightUser");
+        RDiv.style.top = top + 'px';
+      }
+
+      function keyDownHandler()
+      {
+        if(gameWhether == 0 && event.keyCode == 32)
+        {
+          ballBounceCheck();
+        }
+        else if(event.keyCode == 38 && divRightTop >= 0)   // Right - 위쪽
+        {
+          divRightTop -= 20;
+          moveToRight(divRightTop);
+        }
+        else if(event.keyCode == 40 && divRightTop <= window.innerHeight - 210) // Right - 아래쪽
+        {
+          divRightTop += 20;
+          moveToRight(divRightTop);
+        }
+        else if(event.keyCode == 87 && divLeftTop >= 0) // Left - 위쪽
+        {
+          divLeftTop -= 20;
+          moveToLeft(divLeftTop);
+        }
+        else if(event.keyCode == 83 && divLeftTop <= window.innerHeight - 210) // Left - 아래쪽
+        {
+          divLeftTop += 20;
+          moveToLeft(divLeftTop);
+        }
+      }
+      // ****************** User들 움직임 (end) ********************************
+
+      window.onload = function()
+      {
+        setInterval(ballMove, 50);
+        ScoreUpdate(LeftScore, RightScore);
+        document.addEventListener('keydown', keyDownHandler);
+      }
+    </script>
+  </head>
+  <body>
+    <p>조작키(red) : W : 위로 가기, S : 밑으로 가기</p>
+    <p>조작키(blue) : ↑ : 위로 가기, ↓ : 밑으로 가기</p>
+    <p>시작 버튼: spacebar</p>
+    <h2></h2>
+    <div id="LeftUser"></div>
+    <div id="RightUser"></div>
+    <div id="ball"></div>
+    <p></p>
+  </body>
+</html>
