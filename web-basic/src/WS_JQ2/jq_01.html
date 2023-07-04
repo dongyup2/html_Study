@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.7.0.js"></script>
+    <!-- <script>
+        $(document).ready(function(){
+            
+        });
+    </script> -->
+    <title>Document</title>
+</head>
+<body>
+        <h1>text</h1>
+        <h1>text</h1>
+        <h1>text</h1>
+    <script>
+        const h1 = document.getElementsByTagName("h1");
+        for(let i = 0; i < h1.length; i++){
+            h1[0].style.color = 'red';
+            h1[0].style.background = 'black';
+        }
+        
+        $("h1").css('color', 'blue');
+        $("h1").css('background', 'yellow');
+    </script>
+</body>
+</html>
