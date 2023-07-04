@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <img>
+    <img>
+    <img>
+
+    <script>
+        //값을 얻어낼때 쓴다.
+        // let src = $('script').attr('src');
+        // alert(src);
+       
+        // $('img').attr('alt','jQuery 라이브러리를 사용한 속성 지정');
+        // $('img').attr('src', 'http://placehold.it/100x100');
+        // $('img').attr('width', '100');
+        
+        $('img').attr({
+            alt: '블라블라블라',
+            src: function(index){
+                let size = (index + 1) * 100;
+                return 'http://placehold.it/' + size
+                + 'x100';
+            }
+        });
+    </script>
+</body>
+</html>
