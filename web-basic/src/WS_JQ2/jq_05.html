@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+    <style>
+        #myImage{
+            width: 200;
+            height: 200;
+            margin: 20px;
+        }
+    </style>
+<body>
+    <img id="myImage" data-num="1">
+    <button id="btn">Click</button>
+    <script>
+        $('#btn').click(function(){
+            if($('#myImage').attr('data-num')=='2'){
+                $('#myImage').attr('src', '/src/MyWeb/images/Kakao.png');    
+                $('#myImage').attr('data-num', '1');   
+            }else{
+                $('#myImage').attr('src', '/src/MyWeb/images/google.png');    
+                $('#myImage').attr('data-num', '2');
+            }
+       });
+    </script>
+</body>
+</html>
