@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <form action="jq_01.html">
+        <input type="text" name="id" id="id" value="aaa"><br>
+        <input type="password" name="pw" id="id"><br>
+        <input type="submit" value="전송" onclick="return f()"><br>
+    </form>
+    <script>
+        function f(){
+            if($("#id").val().length == 0){
+                alert("id를 입력해주세요");
+                $("#id").focus();
+                return false;
+            }
+            if($("#pw".val() == "")){
+                alert
+                return false;
+            }    
+            return true;
+        }
+
+        let id = $("#id").val().length;
+        alert(id);
+    </script>
+</body>
+</html>

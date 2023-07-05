@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <hr>
+    <div id="container">
+        <button id="btn1">btn1</button><br>
+        <button id="btn2">btn2</button><br>
+        <button id="btn3">btn3</button><br>
+    </div>
+    <script>
+        $("#container").click(function(e){
+            alert()
+        })
+
+        //이벤트 핸들러를 직접 요소에 바인딩하는 방법
+        //간단한경우 좋음
+        $("#btn1").click(function(){
+            alert('btn1');
+        });
+        $("#btn2").click(function(){
+            alert('btn2');
+        });
+        $("#btn3").click(function(){
+            alert('btn3');
+        });
+        // 코드 정리 및 관리 목적으로 이벤트 핸들러를 함수로 분리
+        function btn1ClickHandler() {
+            alert('btn1');
+        }
+        function btn2ClickHandler() {
+            alert('btn2');
+        }
+        function btn3ClickHandler() {
+            alert('btn3');
+        }
+
+        $("#btn1").click(btn1ClickHandler);
+        $("#btn2").click(btn2ClickHandler);
+        $("#btn3").click(btn3ClickHandler);
+
+    </script>
+</body>
+</html>

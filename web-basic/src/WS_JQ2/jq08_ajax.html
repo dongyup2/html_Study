@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <button onclick="getData()">click</button>
+    <hr>
+    <div id="demo">
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>이메일</th>
+                    <th>유저코드</th>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                </tr>
+            </thead>
+            <tbody id="tableData"></tbody>
+        </table>
+    </div>
+
+    <script>
+
+        // function formatUserData(jsonData) {
+        //     return "유저 정보:<br>" +
+        //         "이름: " + jsonData.data.name + "<br>" +
+        //         "이메일: " + jsonData.data.email + "<br>";
+               
+        // }
+        function fillTable(data) {
+            //$("#tbody").append("<tr><td>" + data.data.name + "</td></tr>);
+            var newRowContent = "<tr>" +
+                "<td>" + data.data.name + "</td>" +
+                "<td>" + data.data.email + "</td>" +
+                "<td>" + data.data.usercode + "</td>" +
+                "<td>" + data.data.username + "</td>" +
+                "<td>" + data.data.password + "</td>" +
+                "</tr>";
+            $("#tableData").html(newRowContent);
+        }
+        function formatData(data){
+            return "유저 데이터 목록 <br>" + "이름: " + data.data.name + "<br>"
+                                  + "이메일: " + data.data.email + "<br>"
+                                  + "유저코드: " + data.data.usercode + "<br>"
+                                  + "아이디: " + data.data.username + "<br>"
+                                  + "비밀번호: " + data.data.password + "<br>";
+        }
+        // function getData(){
+        //     $.ajax({
+        //         url: "js/sample.json",//sample.txt의 경로로 
+        //         type: "get", //타입은 get 방식이다.
+        //         dataType: "json", //데이터 타입은 text 타입의 자료를 받겠다.
+        //         success: function(resp){ // ajax 통신이 성공적으로 끝나면 ~~
+        //         let formattedData = formatUserData(resp);
+        //             $("#demo").html(formattedData);
+        //         }
+        //     });
+        // }
+        function getData(){
+            $.ajax({
+                url: "js/sample.json",
+                type: "get",
+                dataType: "json",
+                success: function(resp){
+                    if(resp.code === 1){
+                        let formattedData = formatData(resp);
+                        $("#demo").html(formattedData + "<br>메시지: " + resp.msg);
+                        // fillTable(resp);
+                    }else{
+                        $("#demo").html("<h1>메시지:<h1> " + resp.failmsg);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
