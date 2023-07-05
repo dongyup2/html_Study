@@ -1,0 +1,13 @@
+
+{
+    "code": 1,
+    "msg": "유저정보 로드 성공",
+    "failmsg": "유저정보 로드 실패",
+    "data": {
+        "usercode": 20230705,
+        "username": "root",
+        "password": "1234",
+        "name": "홍길동",
+        "email": "gildong@hong.com"
+    }
+} 
