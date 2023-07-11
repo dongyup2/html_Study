@@ -7,28 +7,39 @@
   <script src="js/omok.js"></script>
   <style>
   	@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-  	@import url("css/omokboard.css");
+  	@import url("css/omokboard.css?5");
+    /* border-left: 1px solid rgba(0, 0, 0, 0.7);
+    border-right: 1px solid rgba(0, 0, 0, 0.7);
+    width: 484px;
+    height: 20px;
+    color: #FFFFFF;
+    box-shadow: none;
+    text-align: right;
+    text-shadow: 0px 1px 3px #141414;
+    overflow: hidden; */
 </style>
 </head>
 <body>
   <div class="nav">오목 게임</div>
-   <div><a href="SignupRegis.jsp">나가기</a></div>  
+   <div><a href="SignupRegis.jsp"></a></div>  
   <div class="empty"></div>
   <div class="container">
     <div class="profile-left">
       <img src="img/bono.jpg" alt="player1 이미지">
       <div class="profile-name">Player 1</div>
       <div class="profile-info">유저1 정보</div>
+      <div id="timer1">남은 시간: 30초</div>
     </div>
     <div class="board" id="board"></div>
     <div class="profile-right">
       <img src="img/bono.jpg" alt="player2 이미지">
       <div class="profile-name">Player 2</div>
       <div class="profile-info">유저2 정보</div>
+      <div id="timer2">남은 시간: 30초</div>
     </div>
   </div>
         <br>
         <div class="currentTurn" id="currentTurn">Player 1's Turn</div>
-        <div class="footer">테스트 중</div>
+        <div class="footer"></div>
 </body>
 </html>
