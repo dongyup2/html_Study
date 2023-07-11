@@ -2,7 +2,11 @@ body {
 	position: relative;
 	background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
-
+	#timer{
+		/* position: absolute; 타이머 위치*/ 
+		top: 100px;
+		left: 100px;
+	}
 	.container {
       display: flex;
       justify-content: center;
@@ -38,17 +42,17 @@ body {
       font-size: 14px;
     }
 
-div {
-	display: block;
-}
+	div {
+		display: block;
+	}
 
-/* .nav {
-	margin-top: 50px;
+.nav {
 	height: 10vh;
 	text-align: center;
 	font-family: 'Hanna';
 	font-size: 50px;
-} */
+	line-height: 10vh;
+}
 
 .empty {
 	height: 3vh;
@@ -107,6 +111,9 @@ div {
 
 
 .currentTurn {
+	position: absolute;
+	top: 100px;
+	left: 80%;
 	text-align: center;
 	font-family: 'Hanna';
 	font-size: 30px;
@@ -114,6 +121,7 @@ div {
 
 
 .footer {
+	display: none;
 	margin-top: 50px;
 	height: 20vh;
 	background-color: transparent;
