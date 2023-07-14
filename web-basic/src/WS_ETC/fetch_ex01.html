@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="f('aaaa')">run</button>
+    <hr>
+    <p id ="demo"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener('click', f);
+        
+        function f(str){
+            fetch('https://jsonplaceholder.typicode.com/users')
+            .then(resp => resp.json())//응답이와서 텍스트화 한다.
+            .then(value => document.getElementById("demo").innerHTML = value[0].username)
+        }
+
+        function f2(str){
+            fetch('servlet')
+            .then(resp => resp.text())//응답이와서 텍스트화 한다.
+            .then(value => document.getElementById("demo").innerHTML = value)
+            } 
+        let f3 = (a,b) => a + b; 
+        f3();
+    </script>
+</body>
+</html>
+서블릿에서 요청을 받아서 뿌려주고싶다.
