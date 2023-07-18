@@ -23,9 +23,9 @@ function startTimer() {
 
     intervalId1 = setInterval(function() {
       updateTime("timer1", remainingTime1, intervalId1);
-    }, 100); // 흑돌 플레이어의 타이머 시작
+    }, 100);                  // 흑돌 플레이어의 타이머 시작
   } 
-  // 백돌 플레이어 차례
+  // 백돌 플레이어 차례 
   else {
     clearInterval(intervalId1); // 흑돌 플레이어의 타이머 정지
 
