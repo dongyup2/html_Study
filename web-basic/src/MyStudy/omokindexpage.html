@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            background-color: #99CCEE;
+            width: 80%;
+            height: 80%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        #nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #F8F8F8;
+            border: 1px solid gray;
+            border-radius: 2px;
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+        }
+        .btn2 {
+            border-radius: 1px;
+            width: 100px;
+            height: 20px; 
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+        }
+        #toggleBtn1 {
+            background-color: #FFFFFF;
+            margin-left: 20px;
+        }
+        #toggleBtn2 {   
+            background-color: #7AA7CA;
+        }
+        #mainBox {
+            width: 100%;
+            height: calc(100% - 40px);
+            display: flex;
+            flex-direction: row;
+        }
+        #listBox {
+            background-color: white;
+            width: 60%;
+            height: 100%;
+            overflow-y: scroll;
+            cursor: pointer;
+        }
+        #userBox {
+            background-color: white;
+            width: 40%;
+            height: 100%;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+        .user {
+            background-color: white;
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: top;
+            padding-top: 2px;
+        }
+        .user:hover {
+            background-color: #ECECEC;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="nav">
+            <div class="btn">방만들기</div>
+            <div class="btn">#100...</div>
+            <div id="toggleBtn1" class="btn2">방 목록</div>
+            <div id="toggleBtn2" class="btn2">더보기</div>
+        </div>
+        <div id="mainBox">
+            <div id="listBox">
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                
+            </div>
+            <div id="userBox">
+                <div class="user3">
+                    <span class="userText">cnp3001g</span>
+                    <div class="user4">
+                        <span class="userText">1105</span>
+                        <span class="userText">#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
