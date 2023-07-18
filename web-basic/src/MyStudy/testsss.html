@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            background-color: #99CCEE;
+            max-width: 1064px; height: 706px; min-height: 0px; top: 40px;
+            padding: 5px;
+        }
+        #nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            height: 30px;
+            margin-left: 30px;
+        }
+        .btn {
+            background-color: #F8F8F8;
+            border: 1px solid gray;
+            border-radius: 2px;
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+        }
+        .btn2 {
+            border-radius: 1px;
+            width: 100px;
+            height: 20px; 
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+        }
+        #toggleBtn1 {
+            background-color: #FFFFFF;
+            margin-left: 20px;
+        }
+        #toggleBtn2 {   
+            background-color: #7AA7CA;
+        }
+        #btn {
+            background-color: white;
+            width: 200px;
+            height: 200px;
+        }
+        #btn:hover {
+            background-color: #ECECEC;
+            cursor: pointer;
+        }
+        #mainBox {
+            width: 397px;
+            height: 500px;
+            margin: 1px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        #listBox {
+            background-color: white;
+            width: 100%;
+            height: 468px;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            overflow-y: scroll;
+        }
+        #ul1 {
+            height: 1000px;
+            list-style-type: none;
+        }
+        #ul2 {
+            height: 1000px;
+            list-style-type: none;
+        }
+        #userBox {
+            background-color: white;
+            width: 100%;
+            height: 468px;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+        .list1 {
+            background-color: white;
+            font-size: 10px;
+            width: 100%;
+            border-bottom: 1px solid gray;
+        }
+        .user {
+            background-color: white;
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: top;
+            padding-top: 2px;
+        }
+        .user:hover {
+            background-color: #ECECEC;
+        }
+        .user2 {
+            display: flex;
+            height: 25px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .userText {
+            font-size: 10px;
+        }
+        .userBtn {
+            background-color: #D2DFF0;
+            width: 25px;
+            height: 10px;
+            font-size: 10px;
+            border-radius: 3px; 
+            text-align: center;
+            line-height: 10px;
+        }
+        .user3 {
+            display: flex;
+            width: 100%;
+            height: 15px;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .user3:hover {
+            background-color: #ECECEC;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="nav">
+            <div class="btn">방만들기</div>
+            <div class="btn">#100...</div>
+            <div id="toggleBtn1" class="btn2">방 목록</div>
+            <div id="toggleBtn2" class="btn2">더보기</div>
+        </div>
+        <div id="mainBox">
+            <div id="listBox">
+                <div class="user">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userText">cnp3001g</span>
+                        <span class="userText">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+            </div>
+            <div id="userBox">
+                <div class="user3">
+                    <span class="userText">cnp3001g</span>
+                    <div class="user4">
+                        <span class="userText">1105</span>
+                        <span class="userText">#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
