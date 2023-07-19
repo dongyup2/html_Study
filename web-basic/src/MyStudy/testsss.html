@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-color: bisque;
+        }
         #box {
-            background-color: #99CCEE;
+            background-color: #e2d1c3;
             max-width: 1064px; height: 706px; min-height: 0px; top: 40px;
             padding: 5px;
         }
@@ -54,7 +57,7 @@
             cursor: pointer;
         }
         #mainBox {
-            width: 397px;
+            width: 1062px;
             height: 500px;
             margin: 1px;
             display: grid;
@@ -99,18 +102,19 @@
             width: 100%;
             border-bottom: 1px solid gray;
         }
-        .user {
+        .gameRoomList {
             background-color: white;
             width: 100%;
-            height: 30px;
+            height: 35px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             align-items: top;
             padding-top: 2px;
+            cursor: pointer;
         }
-        .user:hover {
+        .gameRoomList:hover {
             background-color: #ECECEC;
         }
         .user2 {
@@ -121,7 +125,11 @@
             align-items: center;
         }
         .userText {
-            font-size: 10px;
+            font-size: 13px;
+        }
+        .userName{
+            font-size: 14px;
+            font-weight: bold;
         }
         .userBtn {
             background-color: #D2DFF0;
@@ -132,16 +140,45 @@
             text-align: center;
             line-height: 10px;
         }
-        .user3 {
+        .userlist {
             display: flex;
             width: 100%;
-            height: 15px;
+            height: 20px;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
+            cursor: pointer;
         }
-        .user3:hover {
+        .userlist:hover {
             background-color: #ECECEC;
+        }
+        .chat {
+            height: 500px;
+            width: 300px;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap:8px;
+        }
+        .chat-message {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .chat-message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .chat-message .text {
+            background-color: #eee;
+            padding: 8px;
+            border-radius: 16px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -155,23 +192,95 @@
         </div>
         <div id="mainBox">
             <div id="listBox">
-                <div class="user">
+                <div class="gameRoomList">
                     <span class="userText">#102</span>
                     <span class="userText">2분</span>
                     <div class="user2">
-                        <span class="userText">cnp3001g</span>
-                        <span class="userText">cnp3001g</span>
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
                     </div>
                     <div class="userBtn">>></div>
                 </div>
             </div>
             <div id="userBox">
-                <div class="user3">
+                <div class="userlist">
                     <span class="userText">cnp3001g</span>
                     <div class="user4">
                         <span class="userText">1105</span>
                         <span class="userText">#</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chatBox">
+        <div class="chat">
+            <div class="live-viewers">Live 채팅방</div>
+            <div class="chat-window" style="overflow-y: scroll; flex: 1;">
+                <!-- 이후 채팅 내용이 여기에 추가됩니다 -->
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요! 반갑습니다.</div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">잘봤습니다.</div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요!</div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요! </div>
+                </div>
+                <div class="chat-message">
+                    <img src="" alt="">
+                    <div class="text">안녕하세요!</div>
                 </div>
             </div>
         </div>
