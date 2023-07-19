@@ -7,12 +7,14 @@
     <style>
         body{
             background-color: bisque;
+            display: flex;
         }
         #box {
             background-color: #e2d1c3;
             max-width: 1064px; height: 706px; min-height: 0px; top: 40px;
             padding: 5px;
         }
+        
         #nav {
             display: flex;
             flex-direction: row;
@@ -67,7 +69,7 @@
         #listBox {
             background-color: white;
             width: 100%;
-            height: 468px;
+            height: 650px;
             grid-row-start: 1;
             grid-row-end: 2;
             grid-column-start: 1;
@@ -85,7 +87,7 @@
         #userBox {
             background-color: white;
             width: 100%;
-            height: 468px;
+            height: 650px;
             grid-row-start: 1;
             grid-row-end: 2;
             grid-column-start: 2;
@@ -152,6 +154,10 @@
         .userlist:hover {
             background-color: #ECECEC;
         }
+        #chatMainbox{
+            background-color: #e2d1c3;
+            padding-right: 100px;
+        }
         .chat {
             height: 500px;
             width: 300px;
@@ -159,6 +165,8 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            margin-top: 36px;
+            
             gap:8px;
         }
         .chat-message {
@@ -249,11 +257,12 @@
             </div>
         </div>
     </div>
+    <div id="chatMainbox">
     <div class="chatBox">
         <div class="chat">
             <div class="live-viewers">Live 채팅방</div>
             <div class="chat-window" style="overflow-y: scroll; flex: 1;">
-                <!-- 이후 채팅 내용이 여기에 추가됩니다 -->
+                <!-- 이후 채팅 내용이 여기에 추가 -->
                 <div class="chat-message">
                     <img src="" alt="">
                     <div class="text">안녕하세요!</div>
@@ -285,5 +294,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
