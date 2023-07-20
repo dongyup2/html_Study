@@ -1,246 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="/favicon.png">
-<title>오목</title>
-<style>
-    @import url("css/omokmainpage.css?5");
-    html, body {
-        height: 100%;
-        padding: 0;
-        margin: 0;
-    }
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+            display: flex;
+            justify-content: center; /* 추가된 부분 */
+            align-items: center; /* 추가된 부분 */
+            height: 100vh; /* 추가된 부분 */
+        }
+        .main-content {
+            display: flex; /* 추가된 부분 */
+            max-width: 90%; /* 추가된 부분 : 이 값을 변경하여 중앙 내용 섹션의 최대 너비를 조정하세요. */
+        }
+        #box {
+            background-color: #e2d1c3;
+            max-width: 1064px; height: 706px; min-height: 0px; top: 40px;
+            padding: 10px;
+        }
+        
+        #nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            height: 30px;
+            margin-left: 30px;
+        }
+        .btn {
+            background-color: #F8F8F8;
+            border: 1px solid gray;
+            border-radius: 2px;
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .btn2 {
+            border-radius: 1px;
+            width: 100px;
+            height: 20px; 
+            text-align: center;
+            font-size: 10px;
+            line-height: 20px;
+        }
+        #toggleBtn1 {
+            background-color: coral;
+            margin-left: 20px;
+        }
+        #toggleBtn2 {   
+            background-color: #FFFFFF;
+        }
+        #btn {
+            background-color: white;
+            width: 200px;
+            height: 200px;
+        }
+        #btn:hover {
+            background-color: #ECECEC;
+            cursor: pointer;
+        }
+        #mainBox {
+            width: 1062px;
+            height: 500px;
+            margin: 1px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr;
+        }
+        #listBox {
+            background-color: white;
+            width: 100%;
+            height: 650px;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            overflow-y: scroll;
+        }
+        #ul1 {
+            height: 1000px;
+            list-style-type: none;
+        }
+        #ul2 {
+            height: 1000px;
+            list-style-type: none;
+        }
+        #userBox {
+            background-color: white;
+            width: 100%;
+            height: 650px;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+        .list1 {
+            background-color: white;
+            font-size: 10px;
+            width: 100%;
+            border-bottom: 1px solid gray;
+        }
+        .gameRoomList {
+            background-color: white;
+            width: 100%;
+            height: 35px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: top;
+            padding-top: 2px;
+            cursor: pointer;
+        }
+        .gameRoomList:hover {
+            background-color: #ECECEC;
+        }
+        .user2 {
+            display: flex;
+            height: 25px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .userText {
+            font-size: 13px;
+        }
+        .userName{
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .userBtn {
+            background-color: #D2DFF0;
+            width: 25px;
+            height: 10px;
+            font-size: 10px;
+            border-radius: 3px; 
+            text-align: center;
+            line-height: 10px;
+        }
+        .userlist {
+            display: flex;
+            width: 100%;
+            height: 20px;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            cursor: pointer;
+        }
+        .userlist:hover {
+            background-color: #ECECEC;
+        }
+        #chatMainbox{
+            background-color: #e2d1c3;
+            padding-right: 100px;
+        }
+        .chat {
+            height: 610px;
+            width: 350px;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 36px;
+            margin-left: 10px;
+            overflow-y: scroll;
+            gap:8px;
+        }
+        .chat-window {
+            position: relative;
+            height: calc(100% - 10px);
+        }
+        .chat-message {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .chat-message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .chat-message .text {
+            background-color: #eee;
+            padding: 8px;
+            border-radius: 16px;
+            font-size: 14px;
+        }
+
+        .chat-message.other-message {
+            flex-direction: row;
+        }
+
+        .chat-message.my-message {
+            flex-direction: row-reverse;
+        }
+
+        .input-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 8px;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        #send-button {
+            background-color: coral;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: coral;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+}
+
+.modal-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
     </style>
 </head>
-<body style="overflow: hidden;" class="vm2">
-    <div id="appcont" class="k2base aleg hvok asizing donav" style="max-width: 1064px; height: 706px; min-height: 0px; top: 40px;">
-        <div class="anav usno" style="z-index: 99;">
-            <div class="dclpd bsbb navcont" style="display: inline-block;">
-                <div class="newtab1">
-                    <button class="butsys minwd">방 만들기</button>
-                    <div class="selcwr mro">
-                        <button class="selcbt butsys vsel">#100... bieniasze</button>
-                        <select class="selcsl"><option>#100... bieniasze
-                                (126)</option>
-                            <option>#200... chwalecin (0)</option>
-                            <option>#300... dobrocin (1)</option>
-                            <option>#400... turznica, x (2)</option></select>
+<body>
+    <div class="main-content">
+    <div id="box">
+        <div id="nav">
+            <div class="btn">방만들기</div>
+            <div class="btn">#100...</div>
+            <div id="toggleBtn1" class="btn2">방 목록</div>
+            <div id="toggleBtn2" class="btn2">내정보</div>
+        </div>
+        <!-- Create Room Modal -->
+<div id="createRoomModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-close">&times;</span>
+            <h2>방만들기</h2>
+        </div>
+        <div class="modal-body">
+            <label for="roomTitle">방 제목: </label>
+            <input type="text" id="roomTitleInput" placeholder="방 제목을 입력하세요">
+            <br />
+            <label for="password">비밀번호: </label>
+            <input type="password" id="password" placeholder="비밀번호를 입력하세요" />
+            <br />
+            <label for="gameType">게임 유형: </label>
+            <select id="gameType">
+                <option value="regular_omok">일반오목</option>
+                <option value="speed_omok">스피드오목</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button id="createRoomButton">방만들기</button>
+            <a id="roomLink" href="">게임방으로 이동</a>
+        </div>
+    </div>
+</div>
+
+        <div id="mainBox">
+            <div id="listBox">
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
                     </div>
-                    <span class="tuinfo fb">-</span>
+                    <div class="userBtn">>></div>
                 </div>
-                <div class="nav ib">
-                    <button class="bmain active">방</button>
-                    <button class="">마이페이지</button>
-                    <button class="btab">#000</button>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
+                </div>
+                <div class="gameRoomList">
+                    <span class="userText">#102</span>
+                    <span class="userText">2분</span>
+                    <div class="user2">
+                        <span class="userName" name="user1">cnp3001g</span>
+                        <span class="userName" name="user2">cnp3001g</span>
+                    </div>
+                    <div class="userBtn">>></div>
                 </div>
             </div>
-            <button class="b0tab hdhei usno tama">#000</button>
-            <div class="navttl fb fl" style="display: none;"></div>
-        </div>
-        <div id="precont" class="acon bsbb">
-            <div id="pretl" style="display: block;" class="tblobby">
-                <div class="newtab2 bbsep dcpd">
-                    <button class="minwd">방 만들기</button>
-                    <div class="selcwr mro">
-                        <button class="selcbt min85">#100...</button>
-                        <select class="selcsl"><option>#100... bieniasze
-                                (126)</option>
-                            <option>#200... chwalecin (0)</option>
-                            <option>#300... dobrocin (1)</option>
-                            <option>#400... turznica, x (2)</option></select>
-                    </div>
-                    <div class="ib mro">
-                        <button class="ubut">
-                            <div class="uicon"></div>
-                        </button>
-                    </div>
-                    <span class="tuinfo" style="color: gray;">-</span>
-                </div>
-                <div id="pretabs" class="tbvtabs">
-
-                    <div id="pread" style="min-height: 65px; padding-top: 15px;">
-                        <!-- 65px! -->
-
-                        
-
-                        
-
-                        <p style="margin: .25em 7em .25em 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: .5;">
-                            오목 멀티플레이어</p>
-
-                    </div>
-
-                    <script>
-                        var acloaded = false;
-                        function k2adload() {
-                            if (acloaded)
-                                return;
-                            acloaded = true;
-                            var gads = document.createElement('script');
-                            gads.async = true;
-                            gads.type = 'text/javascript';
-                            var useSSL = 'https:' == document.location.protocol;
-                            gads.src = (useSSL ? 'https:' : 'http:')
-                                    + '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-                            var node = document.getElementsByTagName('script')[0];
-                            node.parentNode.insertBefore(gads, node);
-                        }
-                    </script>
-
-                    <div class="tldeco bbsep"></div>
-                    <div></div>
-                    <div class="chpan bbsep dcpd">
-                        <div class="chtop">
-                            <select class="chgrlist minwd"></select><input type="checkbox">귓속말
-                            <span></span>
-                        </div>
-                        <div class="chsub">
-                            <div style="display: block; position: relative; width: 100%; max-width: 640px; height: 140px;">
-                                <div class="btlbr" style="position: absolute; padding: 4px 15px; inset: 0px 0px 2.5em; overflow-y: scroll; overflow-wrap: break-word;">
-                                    <div class="tind">+ 오목</div>
-                                </div>
-                                <div style="position: absolute; bottom: 0px; width: 100%;">
-                                    <div style="display: table; width: 100%;">
-                                        <div style="display: table-cell;">
-                                            <form>
-                                                <input class="bsbb" name="somename" type="text" autocomplete="off" autocapitalize="off" style="width: 100%; margin: 0px;">
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tlst usno">
-                        <a class="awrap bbsep dcpd tavail"><div class="tmaxw">
-                                <div class="tnum">#118</div>
-                                <div class="tpar1">5분</div>
-                                <div class="tplbl">
-                                    <div class="tplnorm">
-                                        <div class="r2"></div>
-                                        msm9918g<span class="tplrn snum">1348</span>
-                                    </div>
-                                    <div class="tplemp">
-                                        <div class="rnone"></div>
-                                        –<span class="tplrn snum">-</span>
-                                    </div>
-                                    <div class="tpar0">
-                                        <div class="rnone"></div>
-                                        5분
-                                    </div>
-                                </div>
-                                <div class="tjoin">
-                                    <button class="butbl">&gt;&gt;</button>
-                                </div>
-                            </div></a>
-                            <a class="awrap bbsep dcpd tavail"><div class="tmaxw">
-                                <div class="tnum">#118</div>
-                                <div class="tpar1">5분</div>
-                                <div class="tplbl">
-                                    <div class="tplnorm">
-                                        <div class="r2"></div>
-                                        msm9918g<span class="tplrn snum">1348</span>
-                                    </div>
-                                    <div class="tplemp">
-                                        <div class="rnone"></div>
-                                        –<span class="tplrn snum">-</span>
-                                    </div>
-                                    <div class="tpar0">
-                                        <div class="rnone"></div>
-                                        5분
-                                    </div>
-                                </div>
-                                <div class="tjoin">
-                                    <button class="butbl">&gt;&gt;</button>
-                                </div>
-                            </div></a>
-                            <a class="awrap bbsep dcpd"><div class="tmaxw">
-                                <div class="tnum">-</div>
-                                <div class="tpar1">1분</div>
-                                <div class="tplbl">
-                                    <div class="tplunav">
-                                        <div class="rnone"></div>
-                                        –<span class="tplrn snum">-</span>
-                                    </div>
-                                    <div class="tplunav">
-                                        <div class="rnone"></div>
-                                        –<span class="tplrn snum">-</span>
-                                    </div>
-                                    <div class="tpar0">
-                                        <div class="rnone"></div>
-                                        1분
-                                    </div>
-                                </div>
-                                <div class="tjoin">
-                                    <button class="butbl">&gt;&gt;</button>
-                                </div>
-                            </div></a>
-                    </div>
-                </div>
-                <div class="tbvusers usno">
-                    <div class="ulpan bbsep" style="display: none;">
-                        <button>거절된 사용자</button>
-                    </div>
-                    <div>
-                        <table class="ul uls2">
-                            <tbody><tr class="ulhead">
-                                <td><div class="darr"></div></td>
-                                <td><div class="darr"></div></td>
-                                <td><div class="darr"></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="ulnm">
-                                        <div class="r2"></div>
-                                        ychu<span class="ulla ulla0">(zh)</span>
-                                    </div></td>
-                                <td class="m1ac"><button class="ulbx">X</button></td>
-                                <td class="m0ac ulnu">1416</td>
-                                <td class="m0ac ulnu" title="#128">#</td>
-                            </tr>
-                        </tbody></table>
+            <div id="userBox">
+                <div class="userlist">
+                    <span class="userText">cnp3001g</span>
+                    <div class="user4">
+                        <span class="userText">1105</span>
+                        <span class="userText">#</span>
                     </div>
                 </div>
             </div>
+            <div id="userProfile" style="display:none">
+                <h1>User Game Info</h1>
+                <!-- 실제로 데이터를 출력하는 부분은 여기에 작성 -->
+            </div>
         </div>
-<!-- Code injected by live-server -->
-<!-- <script>
-// <![CDATA[  <-- For SVG support
-if ('WebSocket' in window) {
-    (function () {
-        function refreshCSS() {
-            var sheets = [].slice.call(document.getElementsByTagName("link"));
-            var head = document.getElementsByTagName("head")[0];
-            for (var i = 0; i < sheets.length; ++i) {
-                var elem = sheets[i];
-                var parent = elem.parentElement || head;
-                parent.removeChild(elem);
-                var rel = elem.rel;
-                if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                    var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                    elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                }
-                parent.appendChild(elem);
-            }
-        }
-        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-        var address = protocol + window.location.host + window.location.pathname + '/ws';
-        var socket = new WebSocket(address);
-        socket.onmessage = function (msg) {
-            if (msg.data == 'reload') window.location.reload();
-            else if (msg.data == 'refreshcss') refreshCSS();
-        };
-        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-            console.log('Live reload enabled.');
-            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-        }
-    })();
+    </div>
+    <div id="chatMainbox">
+    <div class="chatBox">
+        <div class="chat">
+            <div class="live-viewers">Live 채팅방</div>
+            <div class="chat-window" id="chat-window">
+                <div class="chat-message other-message">
+                    <img src="" alt="">
+                    <div class="text">오목 할사람</div>
+                </div>
+                <div class="chat-message other-message">
+                    <img src="" alt="">
+                    <div class="text">응 안해</div>
+                </div>
+                <div class="chat-message other-message">
+                    <img src="" alt="">
+                    <div class="text">너나 해</div>
+                </div>
+                <div class="chat-message other-message">
+                    <img src="" alt="">
+                    <div class="text">ㄱㄱ</div>
+                </div>
+                <div class="chat-message my-message">
+                    <img src="" alt="">
+                    <div class="text">ㅎㅇ</div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="message-input" placeholder="메세지를 입력해주세요..."/>
+                    <button id="send-button">전송</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    const messageInput = document.getElementById("message-input");
+    const sendButton = document.getElementById("send-button");
+    const chatWindow = document.getElementById("chat-window"); // 채팅 창 엘리먼트의 ID
+
+    function createMyMessage(text) {
+        const message = document.createElement("div");
+        message.classList.add("chat-message");
+        message.classList.add("my-message");
+    
+        const img = document.createElement("img");
+        img.src = ""; // 본인 이미지 URL 입력하면 될듯 ?
+        img.alt = "";
+    
+        const msgText = document.createElement("div");
+        msgText.classList.add("text");
+        msgText.innerText = text;
+    
+        message.appendChild(img);
+        message.appendChild(msgText);
+    
+        return message;
 }
-else {
-    console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+
+        function sendMessage() {
+        const messageText = messageInput.value;
+
+        if (messageText === "") {
+            return;
+        }
+
+        const message = createMyMessage(messageText);
+        chatWindow.appendChild(message);
+
+    messageInput.value = "";
+    chatWindow.scrollTop = chatWindow.scrollHeight; // 스크롤을 채팅 창 맨 아래로 이동
 }
-// ]]>
-</script> -->
+
+    sendButton.addEventListener("click", sendMessage);
+    messageInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+});
+
+const toggleBtn1 = document.getElementById("toggleBtn1");
+const toggleBtn2 = document.getElementById("toggleBtn2");
+const listBox = document.getElementById("listBox");
+const userBox = document.getElementById("userBox");
+const userProfile = document.getElementById("userProfile");
+
+toggleBtn1.addEventListener("click", () => {
+    toggleBtn1.style.backgroundColor = "coral";
+    toggleBtn2.style.backgroundColor = "#FFFFFF";
+    userBox.style.display = "block";
+    userProfile.style.display = "none";
+    listBox.style.display = "block"; 
+});
+
+toggleBtn2.addEventListener("click", () => {
+    toggleBtn1.style.backgroundColor = "#FFFFFF";
+    toggleBtn2.style.backgroundColor = "coral";
+    userBox.style.display = "none";
+    userProfile.style.display = "block";
+    listBox.style.display = "none";
+
+    loadUserProfile();
+});
+function loadUserProfile() {
+    fetch("/path/to/your/api") // 여기에 API 경로를 입력하세요.
+        .then((response) => response.json())
+        .then((userGameInfo) => {
+            // 이곳에 실제로 사용자 프로필 내용을 구성하는 코드를 작성하세요.
+            userProfile.innerHTML = `
+                <h3>Member Number: <span>${userGameInfo.mno}</span></h3>
+                <h3>Name: <span>${userGameInfo.name}</span></h3>
+                <h3>ID: <span>${userGameInfo.id}</span></h3>
+                <h3>Email: <span>${userGameInfo.email}</span></h3>
+                <h3>regDate: <span>${userGameInfo.regDate}</span></h3>
+                <h3>Game record ID: <span>${userGameInfo.record_id}</span></h3>
+                <h3>Win: <span>${userGameInfo.win}</span></h3>
+                <h3>Lose: <span>${userGameInfo.lose}</span></h3>
+                <h3>Draw: <span>${userGameInfo.draw}</span></h3>
+                <h3>Last play date: <span>${userGameInfo.play_date}</span></h3>
+            `;
+        })
+        .catch((error) => {
+            console.error("Error fetching user profile data:", error);
+        });
+}
+const createRoomModal = document.getElementById("createRoomModal");
+const createRoomBtn = document.querySelector(".btn");
+const closeModalBtn = document.querySelector(".modal-close");
+
+// 방만들기 버튼 클릭 시 모달 창 열기
+createRoomBtn.onclick = () => {
+    createRoomModal.style.display = "block";
+};
+
+// 모달 창 닫기 버튼 클릭 시 모달 창 닫기
+closeModalBtn.onclick = () => {
+    createRoomModal.style.display = "none";
+};
+
+// 모달 창 바깥쪽 클릭 시 모달 창 닫기
+window.onclick = (event) => {
+    if (event.target == createRoomModal) {
+        createRoomModal.style.display = "none";
+    }
+};
+
+function getRandomRoomNumber() {
+    return Math.floor(Math.random() * 1000); 
+}
+
+function createRoomTitle(clientRoomTitle) {
+    const roomNumber = getRandomRoomNumber();
+    const roomTitle = `${clientRoomTitle}#${roomNumber}`;
+    return roomTitle;
+}
+// Create Room Button 클릭 이벤트
+document.getElementById("createRoomButton").addEventListener("click", () => {
+  const clientRoomTitle = document.getElementById("roomTitleInput").value;
+  const roomTitle = createRoomTitle(clientRoomTitle);
+  
+  const roomLinkElem = document.getElementById("roomLink");
+  roomLinkElem.href = `omokGame.html?roomTitle=${encodeURIComponent(roomTitle)}`;
+});
+
+// URL에서 방 제목 가져오기
+function getRoomTitleFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const roomTitle = urlParams.get('roomTitle');
+  return roomTitle ? decodeURIComponent(roomTitle) : '';
+}
+
+// 표시할 방 제목 요소
+const roomTitleElem = document.createElement('div');
+roomTitleElem.innerText = getRoomTitleFromUrl();
+
+// 오목 게임 제목 요소 바로 아래에 표시
+const navElem = document.querySelector(".nav");
+navElem.parentNode.insertBefore(roomTitleElem, navElem.nextSibling);
+
+
+</script>
 </body>
 </html>
