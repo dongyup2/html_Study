@@ -129,10 +129,11 @@ function isGameOver() {// 게임이 종료되었는지, 즉 연속 5개의 돌�
           }
         }
       }
-    }
+    } 
   }
   return false;
 }
+
 // 게임판의 셀을 클릭했을 때 동작하는 이벤트 처리 함수
 function handleCellClick(row, col) {
   if (isValidMove(row, col)) {
