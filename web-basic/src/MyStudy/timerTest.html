@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이머 예제</title>
+  <style>
+    #timer {
+      font-size: 24px;
+    }
+    
+    button {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">경과 시간: 0 초</div>
+  <button id="startBtn">타이머 시작</button>
+  <button id="stopBtn">타이머 멈춤</button>
+
+  <script>
+    const timerDisplay = document.getElementById('timer');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+
+    let startTime;
+    let timer;
+
+    function startTimer() {
+      startTime = Date.now();
+      timer = setInterval(updateElapsedTime, 1000);
+    }
+
+    function updateElapsedTime() {
+      let currentTime = Date.now();
+      let elapsedTime = currentTime - startTime;
+      let elapsedTimeInSeconds = Math.floor(elapsedTime / 1000);
+
+      timerDisplay.textContent = `경과 시간: ${elapsedTimeInSeconds} 초`;
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    stopBtn.addEventListener('click', stopTimer);
+  </script>
+</body>
+</html>
