@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="starbox">
+        <img src="img/star_off.png" id="star1">
+        <img src="img/star_off.png" id="star2">
+        <img src="img/star_off.png" id="star3">
+    </div>
+    <div id="score"></div>
+    <script>
+        const star1 = document.querySelector("#star1");
+        const star2 = document.querySelector("#star2");
+        const star3 = document.querySelector("#star3");
+        const div_score = document.querySelector("#score");
+        let score = 0;
+        const starbox = document.querySelector("#starbox");
+        starbox.addEventListener('click', function(e){
+            if(e.target.tagName != "IMG") return;
+            if(e.target.id == "star1"){
+                score = 1;
+                starOn(star1);
+                starOff(star2);
+                starOff(star3);
+            }else if(e.target.id == "star2"){
+                score = 2;
+                starOn(star1);
+                starOn(star2);
+                starOff(star3);
+            }else if(e.target.id == "star3"){
+                score = 2;
+                starOn(star1);
+                starOn(star2);
+                starOn(star3);
+            }
+            div_score.innerHTML = "<h3>" + score + "</h3>";
+        });
+        function starOn(what){
+            what.setAttribute('src', 'img/star_on.png');
+        }
+        function starOff(what){
+            what.setAttribute('src', 'img/star_off.png');
+        }
+    </script>
+</body>
+</html>
