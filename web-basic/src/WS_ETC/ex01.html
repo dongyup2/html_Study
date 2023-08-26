@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="f('aaaa')">run</button>
+    <button id="btn" onclick="f2(f1,'kkkk')">run2</button>
+    <hr>
+    <p id ="demo"></p>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener('click', f);
+
+        function f(str){
+            alert("f()......" + str);
+        }
+        function f1(str){
+            document.querySelector("#demo").
+            innerHTML = str;
+        }
+        function f2(func, s){
+            func(s);
+        }
+    </script>
+</body>
+</html>
